@@ -1,0 +1,62 @@
+<!-- <p [class]='omnia'>hii {{name}}</p>
+<img [src]="imgURl" alt="img"> -->
+<br><br>
+<br>
+<br>
+
+<!-- <button onclick="alert('hiiiiiii')">click here</button> -->
+
+<!-- zy document.selector.addeventlisterner -->
+<!-- hwa dlw2ty 48al mn javascript m3 mn html -->
+<!-- <button (click)="onButtonClick()">click me</button> -->
+
+<!-- property binding []  kol el prorerty eely kant 3ndy fe js mmk a use them-->
+<button (click)="onButtonClick()" [disabled]='!buttonDisplay'>click me</button>
+<br>
+<input (input)="onInputButton($event)" type="text">
+<p>{{inputText}}</p>
+
+<br>
+<!-- ng model directive -->
+<input type="text" [(ngModel)]="inputText2">
+<p>{{inputText2}}</p>
+<br>
+<!-- kda 8lt bsbs en ana buse key w breturn for example mn database  -->
+<!-- property binding -->
+<img [src]="imgURl" alt="img">
+<!-- lw ana 3yza src aw Src mtfr24 m3aya a use attr.Src aw attr.src m4 htfr2  -->
+<img [attr.Src]="imgURl" alt="img">
+<div [innerHTML]="inputText2"></div>
+
+<!-- 2 types of directives -->
+<!-- first type called attribute directive -->
+<button (click)="onButtonChangeColor()" ButtonChangeColor>click to change background color</button>
+
+<p [ngStyle]="{backgroundColor:getColor()}">this button is clicked</p>
+<br>
+<p [ngClass]="{click:ButtonChangeColor}" [ngStyle]="{backgroundColor:getColor()}">this button is clicked</p>
+<br>
+<p [ngClass]="{click:ButtonChangeColor==true}" [ngStyle]="{backgroundColor:getColor()}">this button is clicked</p>
+<br>
+<p [ngClass]="{click:ButtonChangeColor==false}" [ngStyle]="{backgroundColor:getColor()}">this button is clicked</p>
+<br>
+<p [class]="ButtonChangeColor && 'click'" [ngStyle]="{backgroundColor:getColor()}">this button is clicked (without ngClass)</p>
+
+
+<!-- second type called structure directive -->
+
+<p *ngIf="ButtonChangeColor; else omnia">online</p>
+<ng-template #omnia>offline</ng-template>
+
+<div *ngFor="let element of elementArray; let i=index">
+    {{i}} this is {{element.name}} his age {{element.age}}
+    <div [ngSwitch]="element.age">
+        <div *ngSwitchCase='18'>Small</div>
+        <div *ngSwitchCase='23'>medium</div>
+        <div *ngSwitchCase='27'>medium</div>
+        <div *ngSwitchDefault>old</div>
+    </div>
+</div>
+
+<div class="omnia1 omnia2" #d>omnia omnia omnia</div>
+<button (click)='submitElement()'>reveal</button>
